@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>HTML5 boilerplate – all you really need…</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body id="home">
+
+	<h1>HearthStone</h1>
+  <form action="/cards" method="post">
+<input type="number" name="mana" placeholder="mana">
+<input type="number" name="attack" placeholder="attack">
+<input type="number" name="health" placeholder="protec">
+<input type="text" name="description" placeholder="description">
+<input type="submit" >
+    </form>
+
+    <div>
+      <%for(let i=0; i<cards.length; i++)
+      {%>
+        <hr>
+        <p><%=cards[i].description%></p>
+        <p>mana:<%=cards[i].mana%></p>
+        <p>attack:<%=cards[i].attack%></p>
+        <p>health:<%=cards[i].health%></p>
+        <a href="/cards/add/<%=cards[i].id%>">Add to list</a>
+      <%}%>
+
+</div>
+<div>
+  <%for(let i=0; i<deck.length; i++)
+  {%>
+    <hr>
+    <p><%=deck[i].description%></p>
+    <p>mana:<%=deck[i].mana%></p>
+    <p>attack:<%=deck[i].attack%></p>
+    <p>health:<%=deck[i].health%></p>
+    <a href="/cards/add/<%=cards[i].id%>">Remove from list</a>
+  <%}%>
+
+</div>
+</body>
+</html>
